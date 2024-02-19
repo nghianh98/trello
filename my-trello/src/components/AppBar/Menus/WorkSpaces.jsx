@@ -5,11 +5,11 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
-import Typography from '@mui/material/Typography'
-import ContentCut from '@mui/icons-material/ContentCut'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import Check from '@mui/icons-material/Check'
+import Divider from '@mui/material/Divider'
 
-export default function WorkSpaces() {
+export default function Workspaces() {
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
@@ -22,8 +22,8 @@ export default function WorkSpaces() {
     <Box>
       <Button
         sx={{ color: 'white' }}
-        id='basic-button-workspaces'
-        aria-controls={open ? 'basic-menu-workspaces' : undefined}
+        id='basic-button-recent'
+        aria-controls={open ? 'basic-menu-recent' : undefined}
         aria-haspopup='true'
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
@@ -32,22 +32,39 @@ export default function WorkSpaces() {
         Workspaces
       </Button>
       <Menu
-        id='basic-menu-workspaces'
+        id='basic-menu-recent'
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'basic-button-workspaces'
+          'aria-labelledby': 'basic-button-recent'
         }}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem>
+          <ListItemText inset>Single</ListItemText>
+        </MenuItem>
+        <MenuItem>
+          <ListItemText inset>1.15</ListItemText>
+        </MenuItem>
+        <MenuItem>
+          <ListItemText inset>Double</ListItemText>
+        </MenuItem>
+        <MenuItem>
           <ListItemIcon>
-            <ContentCut fontSize='small' />
+            <Check />
           </ListItemIcon>
-          <ListItemText>Cut</ListItemText>
-          <Typography variant='body2' color='text.secondary'>
-            ⌘C
-          </Typography>
+          Custom: 1.2
+        </MenuItem>
+        <Divider />
+        <MenuItem>
+          <ListItemText>Add space before paragraph</ListItemText>
+        </MenuItem>
+        <MenuItem>
+          <ListItemText>Add space after paragraph</ListItemText>
+        </MenuItem>
+        <Divider />
+        <MenuItem>
+          <ListItemText>Custom spacing...</ListItemText>
         </MenuItem>
       </Menu>
     </Box>
