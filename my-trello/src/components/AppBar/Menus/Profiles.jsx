@@ -34,7 +34,7 @@ export default function Profiles() {
           <Avatar
             sx={{ width: 36, height: 36 }}
             alt='nghianh98'
-            src='https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/323433633_1610363862735601_4420723894521922847_n.jpg?stp=cp6_dst-jpg&_nc_cat=108&ccb=1-7&_nc_sid=a73e89&_nc_ohc=xYk791g2IuYAX9vqW0S&_nc_ht=scontent.fhan3-3.fna&oh=00_AfB2zIEtW5_3umn4YAg40iobEX-1PkJJ9XnrcmWBvblNgQ&oe=65B8212D'
+            src='https://via.placeholder.com/300x300'
           />
         </IconButton>
       </Tooltip>

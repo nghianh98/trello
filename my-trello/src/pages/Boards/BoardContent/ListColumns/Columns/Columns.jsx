@@ -11,10 +11,15 @@ import Divider from '@mui/material/Divider'
 import Tooltip from '@mui/material/Tooltip'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import AddCardIcon from '@mui/icons-material/AddCard'
+import ContentPasteIcon from '@mui/icons-material/ContentPaste'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import Button from '@mui/material/Button'
 import DragHandleIcon from '@mui/icons-material/DragHandle'
 import ListCards from './ListCards/ListCards'
 import { mapOrder } from '~/utils/sorts'
+
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 
 export default function Columns({ column }) {
   const [anchorEl, setAnchorEl] = useState(null)
@@ -25,10 +30,25 @@ export default function Columns({ column }) {
   const handleClose = () => {
     setAnchorEl(null)
   }
-
   const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, '_id')
+
+  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
+    id: column._id,
+    data: { ...column }
+  })
+  const dndKitColumnStyles = {
+    // Dành cho sensor default dạng PointerSensor
+    // touchAction: 'none',
+    // Nếu sử dụng CSS.Transform như docs sẽ lỗi kiểu stretch
+    transform: CSS.Translate.toString(transform),
+    transition
+  }
   return (
     <Box
+      ref={setNodeRef}
+      style={dndKitColumnStyles}
+      {...attributes}
+      {...listeners}
       sx={{
         minWidth: '300px',
         maxWidth: '300px',
@@ -92,13 +112,13 @@ export default function Columns({ column }) {
               </MenuItem>
               <MenuItem>
                 <ListItemIcon>
-                  <ContentCut fontSize='small' />
+                  <ContentCopyIcon fontSize='small' />
                 </ListItemIcon>
                 <ListItemText>Copy</ListItemText>
               </MenuItem>
               <MenuItem>
                 <ListItemIcon>
-                  <ContentCut fontSize='small' />
+                  <ContentPasteIcon fontSize='small' />
                 </ListItemIcon>
                 <ListItemText>Paste</ListItemText>
               </MenuItem>

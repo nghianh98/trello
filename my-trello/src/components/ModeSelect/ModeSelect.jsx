@@ -14,7 +14,7 @@ export default function ModeSelect() {
     setMode(event.target.value)
   }
   return (
-    <FormControl size='small'>
+    <FormControl size='small' sx={{ minWidth: 'unset' }}>
       <InputLabel
         sx={{
           color: 'white',
