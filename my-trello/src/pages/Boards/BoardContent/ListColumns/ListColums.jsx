@@ -1,12 +1,12 @@
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import NoteAddIcon from '@mui/icons-material/NoteAdd'
-import Columns from './Columns/Columns'
+import Column from './Column/Column'
 import { horizontalListSortingStrategy, SortableContext } from '@dnd-kit/sortable'
 
-export default function ListColums({ columns }) {
+export default function ListColums({ column }) {
   return (
-    <SortableContext items={columns?.map((c) => c._id)} strategy={horizontalListSortingStrategy}>
+    <SortableContext items={column?.map((c) => c._id)} strategy={horizontalListSortingStrategy}>
       <Box
         sx={{
           backgroundColor: 'inherit',
@@ -18,8 +18,8 @@ export default function ListColums({ columns }) {
           '&::-webkit-scrollbar-track': { m: 2 } // tab thanh scroll bar
         }}
       >
-        {columns?.map((column) => {
-          return <Columns key={column._id} column={column} />
+        {column?.map((x) => {
+          return <Column key={x._id} column={x} />
         })}
 
         <Box
