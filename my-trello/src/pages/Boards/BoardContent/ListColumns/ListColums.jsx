@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import NoteAddIcon from '@mui/icons-material/NoteAdd'
-import Column from './Column/Column'
 import { horizontalListSortingStrategy, SortableContext } from '@dnd-kit/sortable'
+import Column from './Column/Column'
 
 export default function ListColums({ column }) {
   return (

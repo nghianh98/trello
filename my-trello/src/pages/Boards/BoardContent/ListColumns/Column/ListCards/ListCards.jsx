@@ -1,6 +1,5 @@
 import Box from '@mui/material/Box'
 import { horizontalListSortingStrategy, SortableContext } from '@dnd-kit/sortable'
-
 import Card from './Card/Card'
 
 export default function ListCards({ cards }) {

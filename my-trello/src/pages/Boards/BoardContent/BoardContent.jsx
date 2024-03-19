@@ -1,7 +1,5 @@
-import Box from '@mui/material/Box'
 import { useEffect, useState } from 'react'
-import ListColums from './ListColumns/ListColums'
-import { mapOrder } from '~/utils/sorts'
+import Box from '@mui/material/Box'
 import {
   DndContext,
   useSensor,
@@ -11,9 +9,12 @@ import {
   DragOverlay,
   defaultDropAnimationSideEffects
 } from '@dnd-kit/core'
+import { mapOrder } from '~/utils/sorts'
 import { arrayMove } from '@dnd-kit/sortable'
+import ListColums from './ListColumns/ListColums'
 import Column from './ListColumns/Column/Column'
 import Card from './ListColumns/Column/ListCards/Card/Card'
+
 const ACTIVE_DRAG_ITEM_TYPE = {
   COLUMN: 'ACTIVE_DRAG_ITEM_TYPE_COLUMN',
   CARD: 'ACTIVE_DRAG_ITEM_TYPE_CARD'
@@ -65,10 +66,8 @@ export default function BoardContent({ board }) {
   }
   const handleDragEnd = (event) => {
     const { active, over } = event
-
     // Cần đảm bảo nếu không tồn tại active hoặc over (khi kéo ra khỏi phạm vi container) thì không làm gì (tránh crash trang)
     if (!active || !over) return
-
     if (active.id !== over.id) {
       // Lấy vị trí cũ (từ thằng active)
       const oldIndex = orderedColumns.findIndex((c) => c._id === active.id)
