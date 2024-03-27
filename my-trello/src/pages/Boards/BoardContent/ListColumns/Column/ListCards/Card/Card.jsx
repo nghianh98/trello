@@ -22,7 +22,8 @@ export default function Card({ card }) {
   const dndKitCardStyles = {
     transform: CSS.Translate.toString(transform),
     transition,
-    opacity: isDragging ? 0.5 : undefined // custom
+    opacity: isDragging ? 0.5 : undefined, // custom
+    border: isDragging ? '1px solid #2ecc71' : undefined // custom
   }
   return (
     <MUICard

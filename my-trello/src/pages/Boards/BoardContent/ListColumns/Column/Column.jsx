@@ -51,6 +51,7 @@ export default function Column({ column }) {
 
   // custom func mapOrder
   const orderedCards = mapOrder(column?.cards, column?.cardOrderIds, '_id')
+
   return (
     <div ref={setNodeRef} style={dndKitColumnStyles} {...attributes}>
       <Box
@@ -95,54 +96,54 @@ export default function Column({ column }) {
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
               />
-              <Menu
-                id='basic-menu-column-dropdown'
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                  'aria-labelledby': 'basic-column-dropdown'
-                }}
-              >
-                <MenuItem>
-                  <ListItemIcon>
-                    <AddCardIcon fontSize='small' />
-                  </ListItemIcon>
-                  <ListItemText>Add a new card</ListItemText>
-                </MenuItem>
-                <MenuItem>
-                  <ListItemIcon>
-                    <ContentCut fontSize='small' />
-                  </ListItemIcon>
-                  <ListItemText>Cut</ListItemText>
-                </MenuItem>
-                <MenuItem>
-                  <ListItemIcon>
-                    <ContentCopyIcon fontSize='small' />
-                  </ListItemIcon>
-                  <ListItemText>Copy</ListItemText>
-                </MenuItem>
-                <MenuItem>
-                  <ListItemIcon>
-                    <ContentPasteIcon fontSize='small' />
-                  </ListItemIcon>
-                  <ListItemText>Paste</ListItemText>
-                </MenuItem>
-                <Divider />
-                <MenuItem>
-                  <ListItemIcon>
-                    <DeleteForeverIcon fontSize='small' />
-                  </ListItemIcon>
-                  <ListItemText>Romove this column</ListItemText>
-                </MenuItem>
-                <MenuItem>
-                  <ListItemIcon>
-                    <DeleteForeverIcon fontSize='small' />
-                  </ListItemIcon>
-                  <ListItemText>Romove this column</ListItemText>
-                </MenuItem>
-              </Menu>
             </Tooltip>
+            <Menu
+              id='basic-menu-column-dropdown'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-column-dropdown'
+              }}
+            >
+              <MenuItem>
+                <ListItemIcon>
+                  <AddCardIcon fontSize='small' />
+                </ListItemIcon>
+                <ListItemText>Add a new card</ListItemText>
+              </MenuItem>
+              <MenuItem>
+                <ListItemIcon>
+                  <ContentCut fontSize='small' />
+                </ListItemIcon>
+                <ListItemText>Cut</ListItemText>
+              </MenuItem>
+              <MenuItem>
+                <ListItemIcon>
+                  <ContentCopyIcon fontSize='small' />
+                </ListItemIcon>
+                <ListItemText>Copy</ListItemText>
+              </MenuItem>
+              <MenuItem>
+                <ListItemIcon>
+                  <ContentPasteIcon fontSize='small' />
+                </ListItemIcon>
+                <ListItemText>Paste</ListItemText>
+              </MenuItem>
+              <Divider />
+              <MenuItem>
+                <ListItemIcon>
+                  <DeleteForeverIcon fontSize='small' />
+                </ListItemIcon>
+                <ListItemText>Romove this column</ListItemText>
+              </MenuItem>
+              <MenuItem>
+                <ListItemIcon>
+                  <DeleteForeverIcon fontSize='small' />
+                </ListItemIcon>
+                <ListItemText>Romove this column</ListItemText>
+              </MenuItem>
+            </Menu>
           </Box>
         </Box>
 
